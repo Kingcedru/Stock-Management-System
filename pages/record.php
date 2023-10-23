@@ -30,7 +30,7 @@
     
             if (mysqli_num_rows($sql))
             {
-                header('location:pages/record.php');
+                echo 'logged in';
             }
             else{
             echo "Wrong Username or password";
