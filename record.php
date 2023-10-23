@@ -14,6 +14,7 @@
     <section class='flex flex-col items-center gap-20 h-screen'>
         <h1 class="text-3xl font-bold">
             Stock Management Stock
+            Record
         </h1>
         <form method='POST' action='index.php'
             class=' flex flex-col pt-10 bg-indigo-600 py-10 px-10 w-4/6 h-4/6 rounded-2xl'>
