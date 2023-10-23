@@ -1,4 +1,5 @@
 <?php
+session_start();
  include 'connection.php';
 ?>
 <!doctype html>
@@ -30,6 +31,7 @@
     
             if (mysqli_num_rows($sql))
             {
+                $_SESSION['name'] = $name;
                 header('location:record.php');
             }
             else{
