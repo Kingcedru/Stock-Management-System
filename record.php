@@ -20,11 +20,18 @@ session_start();
             <ul class='flex gap-2'>
                 <li class=''>Stock
                     <ul>
-                        <li><a href="record.php">Record</li></a>
+                        <li><a href="record.php">Record Stock</li></a>
                         <li><a href="viewRecord.php">View Stock</li></a>
+                        <li><a href="viewRecord.php">Total Stock</li></a>
                     </ul>
                 </li>
-                <li>Expense</li>
+                <li>Sales
+                    <ul>
+                        <li><a href="sales.php">Record Sales</li></a>
+                        <li><a href="viewSales.php">View Sales</li></a>
+                        <li><a href="viewRecord.php">Total Sales</li></a>
+                    </ul>
+                </li>
                 <li>Expense</li>
                 <li>Expense</li>
             </ul>

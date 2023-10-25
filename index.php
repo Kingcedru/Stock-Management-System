@@ -19,7 +19,7 @@ session_start();
         <form method='POST' action='index.php'
             class=' flex flex-col pt-10 bg-indigo-600 py-10 px-10 w-4/6 h-4/6 rounded-2xl'>
             <label>Username</label><input type=' text' placeholder='Enter username' name='name' class='border-2'>
-            <label>Password</label><input type=' password' name='pass' placeholder='Enter password'>
+            <label>Password</label><input type='password' name='pass' placeholder='Enter password'>
 
             <?php
 
