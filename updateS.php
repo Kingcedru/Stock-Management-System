@@ -13,6 +13,7 @@ session_start();
 
 <body>
     <?php
+    
     if($_SESSION['name']){
         ?>
     <section class='flex flex-col gap-20 h-screen'>
@@ -33,33 +34,35 @@ session_start();
         <div class='flex flex-col items-center gap-2'>
             <h1 class="text-3xl font-bold">
                 Stock Management Stock
-                Record
+                Update
             </h1>
-            <form method='POST' action='record.php'
+            <form method='POST' action='#'
                 class=' flex flex-col pt-10 bg-indigo-600 py-10 px-10 w-4/6 h-6/6 rounded-2xl'>
                 <label>Product Name</label><input type=' text' placeholder='Enter username' name='name'
                     class='border-2'>
                 <label>Price</label><input type=' text' placeholder='Enter username' name='price' class='border-2'>
                 <label>Quantity</label><input type=' text' placeholder='Enter username' name='quantity'
                     class='border-2'>
-                <input type='submit' name='record' value='Record' class='border-2'>
+                <input type='submit' name='update' value='Update' class='border-2'>
             </form>
         </div>
     </section>
     <?php
-if(isset($_POST['record'])){
+if(isset($_POST['update']) && isset($_GET['id'])){
+    $id = $_GET['id'];
     $name = $_POST['name'];
     $price = $_POST['price'];
     $quantity = $_POST['quantity'];
     $total = $price * $quantity;
+    
 
-	$sql = mysqli_query($conn,"insert into stock(Name,price,quantity,total) values ('$name','$price','$quantity','$total')");
+	$sqls = mysqli_query($conn,"update stock set Name = '$name',price = '$price',quantity = '$quantity',total = '$total' where Id = '$id'")or die(mysqli_error($conn));
 
-    if($sql)
+    if($sqls)
     {
         ?>
     <script>
-    alert("recorded");
+    alert("updated");
     </script>
     <?php 
     }
@@ -67,7 +70,7 @@ if(isset($_POST['record'])){
     {
         die('not inserted'.mysqli_error($conn));
     }
-}
+    }
 }
 ?>
 
