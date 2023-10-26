@@ -1,21 +1,22 @@
 <?php
 session_start();
- include 'connection.php';
+include 'connection.php';
 ?>
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="styles.css" rel="stylesheet">
+    <title>Document</title>
 </head>
 
 <body>
     <?php
     if($_SESSION['name']){
         ?>
-    <section class='flex flex-col gap-20 h-screen'>
+    <section class='flex flex-col  gap-20 h-screen'>
         <nav class='flex'>
             <ul class='flex gap-2'>
                 <li class=''>Stock 1
@@ -44,47 +45,37 @@ session_start();
             </ul>
             <a href=' logout.php'>Logout</a>
         </nav>
-        <div class='flex flex-col items-center gap-2'>
-            <h1 class="text-3xl font-bold">
-                Stock Management Stock
-                Record
-            </h1>
-            <form method='POST' action='record.php'
-                class=' flex flex-col pt-10 bg-indigo-600 py-10 px-10 w-4/6 h-6/6 rounded-2xl'>
-                <label>Product Name</label><input type=' text' placeholder='Enter username' name='name'
-                    class='border-2'>
-                <label>Price</label><input type=' text' placeholder='Enter username' name='price' class='border-2'>
-                <label>Quantity</label><input type=' text' placeholder='Enter username' name='quantity'
-                    class='border-2'>
-                <input type='submit' name='record' value='Record' class='border-2'>
-            </form>
-        </div>
-    </section>
-    <?php
-if(isset($_POST['record'])){
-    $name = $_POST['name'];
-    $price = $_POST['price'];
-    $quantity = $_POST['quantity'];
-    $total = $price * $quantity;
 
-	$sql = mysqli_query($conn,"insert into stock(Name,price,quantity,total) values ('$name','$price','$quantity','$total')");
 
-    if($sql)
-    {
-        ?>
-    <script>
-    alert("recorded");
-    </script>
-    <?php 
-    }
-    else
-    {
-        die('not inserted'.mysqli_error($conn));
-    }
+
+        <h1 class="text-3xl font-bold">
+            Stock Management Stock
+            Record
+        </h1>
+        <?php
+echo"
+<table border = '1' class='w-full text-sm text-left text-gray-500 dark:text-gray-400'>
+<tr>
+<th class='text-xl py-4 text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>id</th>
+<th class='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>ProductName</th>
+<th class='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>Quantity</th>
+<th class='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>Status</th>
+</tr>";
+
+$fetch = mysqli_query($conn,"select * from stock2");
+
+while($row = mysqli_fetch_array($fetch))
+{
+    echo "<tr class='bg-white border-b dark:bg-gray-800 dark:border-gray-700'>";
+    echo "<td class='px-6 py-4'>".$row['Id']."</td>";
+    echo "<td>".$row['Name']."</td>";
+    echo "<td>".$row['Quantity']."</td>";
+    echo "<td><button class='bg-red-700 px-4 py-2 rounded-md'><a href='deleteS.php?id=".$row['Id']."'>Delete</a></button> 
+    <button class='bg-green-600 px-4 py-2 rounded-md'><a href='updateS.php?id=".$row['Id']."'>Edit</a></button> 
+</td>";
 }
-}
+    }
 ?>
-
 </body>
 
 </html>

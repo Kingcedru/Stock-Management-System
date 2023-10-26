@@ -18,10 +18,17 @@ session_start();
     <section class='flex flex-col gap-20 h-screen'>
         <nav class='flex'>
             <ul class='flex gap-2'>
-                <li class=''>Stock
+                <li class=''>Stock 1
                     <ul>
-                        <li><a href="record.php">Record Stock</li></a>
+                        <li><a href="record.php">Record Stock 1</li></a>
                         <li><a href="viewRecord.php">View Stock</li></a>
+                        <li><a href="totalStock.php">Total Stock</li></a>
+                    </ul>
+                </li>
+                <li class=''>Stock 2
+                    <ul>
+                        <li><a href="record2.php">Record Stock 2</li></a>
+                        <li><a href="viewRecord2.php">View Stock</li></a>
                         <li><a href="totalStock.php">Total Stock</li></a>
                     </ul>
                 </li>
