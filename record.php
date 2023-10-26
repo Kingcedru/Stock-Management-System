@@ -29,7 +29,7 @@ session_start();
                     <ul>
                         <li><a href="record2.php">Record Stock 2</li></a>
                         <li><a href="viewRecord2.php">View Stock</li></a>
-                        <li><a href="totalStock.php">Total Stock</li></a>
+                        <li><a href="totalStock2.php">Total Stock</li></a>
                     </ul>
                 </li>
                 <li>Sales
