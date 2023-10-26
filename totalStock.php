@@ -36,33 +36,27 @@ include 'connection.php';
 
         <h1 class="text-3xl font-bold">
             Stock Management Stock
-            Record
+            Total stock
         </h1>
         <?php
 echo"
 <table border = '1' class='w-full text-sm text-left text-gray-500 dark:text-gray-400'>
 <tr>
 <th class='text-xl py-4 text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>id</th>
-<th class='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>ProductName</th>
-<th class='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>Price</th>
-<th class='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>Quantity</th>
-<th class='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>total</th>
-<th class='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>Status</th>
+<th class='text-xl text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>ProductName</th>
+<th class='text-xl text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>Quantity</th>
+<th class='text-xl text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>total</th>
 </tr>";
 
-$fetch = mysqli_query($conn,"select * from stock");
+$fetch = mysqli_query($conn,"select Name,Id, sum(quantity) as quantity,sum(total) as total from stock group by Name");
 
 while($row = mysqli_fetch_array($fetch))
 {
     echo "<tr class='bg-white border-b dark:bg-gray-800 dark:border-gray-700'>";
     echo "<td class='px-6 py-4'>".$row['Id']."</td>";
     echo "<td>".$row['Name']."</td>";
-    echo "<td>".$row['price']."</td>";
     echo "<td>".$row['quantity']."</td>";
     echo "<td>".$row['total']."</td>";
-    echo "<td><button class='bg-red-700 px-4 py-2 rounded-md'><a href='deleteS.php?id=".$row['Id']."'>Delete</a></button> 
-    <button class='bg-green-600 px-4 py-2 rounded-md'><a href='updateS.php?id=".$row['Id']."'>Edit</a></button> 
-</td>";
 }
     }
 ?>

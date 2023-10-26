@@ -22,7 +22,7 @@ session_start();
                     <ul>
                         <li><a href="record.php">Record Stock</li></a>
                         <li><a href="viewRecord.php">View Stock</li></a>
-                        <li><a href="viewRecord.php">Total Stock</li></a>
+                        <li><a href="totalStock.php">Total Stock</li></a>
                     </ul>
                 </li>
                 <li>Sales
