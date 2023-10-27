@@ -51,10 +51,11 @@ session_start();
             </h1>
             <form method='POST' action='record.php'
                 class=' flex flex-col pt-10 bg-indigo-600 py-10 px-10 w-4/6 h-6/6 rounded-2xl'>
-                <label>Product Name</label><input type=' text' placeholder='Enter username' name='name'
+                <label>Product Name</label><input type=' text' placeholder='Enter username' name='name' required
                     class='border-2'>
-                <label>Price</label><input type=' text' placeholder='Enter username' name='price' class='border-2'>
-                <label>Quantity</label><input type=' text' placeholder='Enter username' name='quantity'
+                <label>Price</label><input type=' text' placeholder='Enter username' name='price' required
+                    class='border-2'>
+                <label>Quantity</label><input type=' text' placeholder='Enter username' name='quantity' required
                     class='border-2'>
                 <input type='submit' name='record' value='Record' class='border-2'>
             </form>
@@ -67,7 +68,7 @@ if(isset($_POST['record'])){
     $quantity = $_POST['quantity'];
     $total = $price * $quantity;
 
-	$sql = mysqli_query($conn,"insert into stock(Name,price,quantity,total) values ('$name','$price','$quantity','$total')");
+	$sql = mysqli_query($conn,"insert into stock(Name,price,quantity,dates,total) values ('$name','$price','$quantity',Now(),'$total')");
 
     if($sql)
     {
