@@ -70,7 +70,7 @@ if(isset($_POST['update']) && isset($_GET['id'])){
     $total = $price * $quantity;
     
 
-	$sqls = mysqli_query($conn,"update stock set Name = '$name',price = '$price',quantity = '$quantity',total = '$total' where Id = '$id'")or die(mysqli_error($conn));
+	$sqls = mysqli_query($conn,"update stock set Name = '$name',price = '$price',quantity = '$quantity',dates = Now(),total = '$total' where Id = '$id'")or die(mysqli_error($conn));
 
     if($sqls)
     {
