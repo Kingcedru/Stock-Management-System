@@ -29,7 +29,7 @@ include 'connection.php';
                 <li class=''>Stock 2
                     <ul>
                         <li><a href="record.php">Record Stock</li></a>
-                        <li><a href="viewRecord.php">View Stock</li></a>
+                        <li><a href="viewRecord2.php">View Stock</li></a>
                         <li><a href="totalStock.php">Total Stock</li></a>
                     </ul>
                 </li>
@@ -58,22 +58,27 @@ echo"
 <tr>
 <th class='text-xl py-4 text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>id</th>
 <th class='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>ProductName</th>
+<th class='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>Price</th>
 <th class='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>Quantity</th>
+<th class='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>Date</th>
+<th class='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>total</th>
 <th class='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>Status</th>
 </tr>";
 
-$fetch = mysqli_query($conn,"select * from stock2");
+$fetch = mysqli_query($conn,"select * from stocks");
 
 while($row = mysqli_fetch_array($fetch))
 {
     echo "<tr class='bg-white border-b dark:bg-gray-800 dark:border-gray-700'>";
     echo "<td class='px-6 py-4'>".$row['Id']."</td>";
     echo "<td>".$row['Name']."</td>";
-    echo "<td>".$row['Quantity']."</td>";
+    echo "<td>".$row['price']."</td>";
+    echo "<td>".$row['quantity']."</td>";
+    echo "<td>".$row['dates']."</td>";
+    echo "<td>".$row['total']."</td>";
     echo "<td><button class='bg-red-700 px-4 py-2 rounded-md'><a href='deleteS.php?id=".$row['Id']."'>Delete</a></button> 
     <button class='bg-green-600 px-4 py-2 rounded-md'><a href='updateS.php?id=".$row['Id']."'>Edit</a></button> 
 </td>";
-}
     }
 ?>
 </body>

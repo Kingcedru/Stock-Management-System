@@ -28,8 +28,8 @@ session_start();
                 <li class=''>Stock 2
                     <ul>
                         <li><a href="record2.php">Record Stock 2</li></a>
-                        <li><a href="viewRecord.php">View Stock</li></a>
-                        <li><a href="totalStock.php">Total Stock</li></a>
+                        <li><a href="viewRecord2.php">View Stock</li></a>
+                        <li><a href="totalStock2.php">Total Stock</li></a>
                     </ul>
                 </li>
                 <li>Sales
@@ -47,24 +47,28 @@ session_start();
         <div class='flex flex-col items-center gap-2'>
             <h1 class="text-3xl font-bold">
                 Stock Management Stock
-                Record2
+                Record
             </h1>
             <form method='POST' action='record2.php'
                 class=' flex flex-col pt-10 bg-indigo-600 py-10 px-10 w-4/6 h-6/6 rounded-2xl'>
-                <label>Product Name</label><input type=' text' placeholder='Enter username' name='name'
+                <label>Product Name</label><input type=' text' placeholder='Enter username' name='name' required
                     class='border-2'>
-                <label>Quantity</label><input type=' text' placeholder='Enter username' name='quantity'
+                <label>Price</label><input type=' text' placeholder='Enter username' name='price' required
                     class='border-2'>
-                <input type='submit' name='record2' value='Record' class='border-2'>
+                <label>Quantity</label><input type=' text' placeholder='Enter username' name='quantity' required
+                    class='border-2'>
+                <input type='submit' name='record' value='Record' class='border-2'>
             </form>
         </div>
     </section>
     <?php
-if(isset($_POST['record2'])){
+if(isset($_POST['record'])){
     $name = $_POST['name'];
+    $price = $_POST['price'];
     $quantity = $_POST['quantity'];
+    $total = $price * $quantity;
 
-	$sql = mysqli_query($conn,"insert into stock2(Name,Quantity) values ('$name','$quantity')");
+	$sql = mysqli_query($conn,"insert into stock2(Name,price,quantity,dates,total) values ('$name','$price','$quantity',Now(),'$total')");
 
     if($sql)
     {
