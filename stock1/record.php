@@ -1,6 +1,6 @@
 <?php
 session_start();
- include 'connection.php';
+ include '../connection.php';
 ?>
 <!doctype html>
 <html>
@@ -60,12 +60,12 @@ session_start();
                     </div>
                 </li>
             </ul>
-            <button type='submit'><a href=' logout.php' class='btn btn-primary'>Logout</button></a>
+            <button type='submit' a href='logout.php' class='btn btn-primary'>Logout</button></a>
         </div>
     </nav>
     <div class="container">
         <div class='flex flex-col items-center gap-2'>
-            <h1 class="text-3xl font-bold">
+            <h1 class="text-center">
                 Stock Management Stock
                 Record
             </h1>
@@ -76,20 +76,20 @@ session_start();
                 </div>
                 <div class="form-group">
                     <label for="price">Price:</label>
-                    <input type="number" name='' class="form-control" id="" placeholder="">
+                    <input type="number" name='price' class="form-control" id="" placeholder="">
                 </div>
                 <div class="form-group">
                     <label for="quantity">Quantity:</label>
-                    <input type="number" name='' class="form-control" id="" placeholder="">
+                    <input type="number" name='quantity' class="form-control" id="" placeholder="">
                 </div>
-                <button name='record' type="submit" class="btn btn-primary">Login</button>
+                <button name='record' type="submit" class="btn btn-primary">Record</button>
             </form>
         </div>
         </section>
     </div>
     <?php
 if(isset($_POST['record'])){
-    $name = $_POST['name'];
+    $name = $_POST['username'];
     $price = $_POST['price'];
     $quantity = $_POST['quantity'];
     $total = $price * $quantity;

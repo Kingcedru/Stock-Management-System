@@ -36,7 +36,7 @@ session_start();
                 if (mysqli_num_rows($sql))
                 {
                     $_SESSION['username'] = $name;
-                    header('location:record.php');
+                    header('location:./stock1/record.php');
                 }
                 else{
                 echo "Wrong Username or password";

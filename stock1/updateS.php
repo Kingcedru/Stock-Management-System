@@ -1,6 +1,6 @@
 <?php
 session_start();
- include 'connection.php';
+ include '../connection.php';
 ?>
 <!doctype html>
 <html>
@@ -14,7 +14,7 @@ session_start();
 <body>
     <?php
     
-    if($_SESSION['name']){
+    if($_SESSION['username']){
         ?>
     <section class='flex flex-col gap-20 h-screen'>
         <nav class='flex'>
