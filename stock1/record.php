@@ -63,22 +63,30 @@ session_start();
             <button type='submit'><a href=' logout.php' class='btn btn-primary'>Logout</button></a>
         </div>
     </nav>
-    <div class='flex flex-col items-center gap-2'>
-        <h1 class="text-3xl font-bold">
-            Stock Management Stock
-            Record
-        </h1>
-        <form method='POST' action='record.php'
-            class=' flex flex-col pt-10 bg-indigo-600 py-10 px-10 w-4/6 h-6/6 rounded-2xl'>
-            <label>Product Name</label><input type=' text' placeholder='Enter username' name='name' required
-                class='border-2'>
-            <label>Price</label><input type=' text' placeholder='Enter username' name='price' required class='border-2'>
-            <label>Quantity</label><input type=' text' placeholder='Enter username' name='quantity' required
-                class='border-2'>
-            <input type='submit' name='record' value='Record' class='border-2 text-danger'>
-        </form>
+    <div class="container">
+        <div class='flex flex-col items-center gap-2'>
+            <h1 class="text-3xl font-bold">
+                Stock Management Stock
+                Record
+            </h1>
+            <form method='POST' action='record.php'>
+                <div class="form-group">
+                    <label for="username">ProductName:</label>
+                    <input type="text" name='username' class="form-control" id="name" placeholder="Enter username">
+                </div>
+                <div class="form-group">
+                    <label for="price">Price:</label>
+                    <input type="number" name='' class="form-control" id="" placeholder="">
+                </div>
+                <div class="form-group">
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" name='' class="form-control" id="" placeholder="">
+                </div>
+                <button name='record' type="submit" class="btn btn-primary">Login</button>
+            </form>
+        </div>
+        </section>
     </div>
-    </section>
     <?php
 if(isset($_POST['record'])){
     $name = $_POST['name'];

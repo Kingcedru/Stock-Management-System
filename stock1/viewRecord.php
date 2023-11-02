@@ -14,7 +14,7 @@ include 'connection.php';
 
 <body>
     <?php
-    if($_SESSION['name']){
+    if($_SESSION['username']){
         ?>
     <section class='flex flex-col  gap-20 h-screen'>
         <nav class='flex'>
