@@ -32,9 +32,9 @@ include '../connection.php';
                         Stock1
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="record.php">Record Stock</a>
-                        <a class="dropdown-item" href="viewRecord.php">View Stock</a>
-                        <a class="dropdown-item" href="totalStock.php">Total Stock</a>
+                        <a class="dropdown-item" href="../stock1/record.php">Record Stock</a>
+                        <a class="dropdown-item" href="../stock1/viewRecord.php">View Stock</a>
+                        <a class="dropdown-item" href="../stock1/totalStock.php">Total Stock</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -77,7 +77,7 @@ include '../connection.php';
             <th class='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>total</th>
             </thead>";
         
-        $fetch = mysqli_query($conn,"select Name,Id, sum(quantity) as quantity,sum(total) as total from stock group by Name");
+        $fetch = mysqli_query($conn,"select Name,Id,dates, sum(quantity) as quantity,sum(total) as total from stock2 group by Name");
         
         while($row = mysqli_fetch_array($fetch))
         {

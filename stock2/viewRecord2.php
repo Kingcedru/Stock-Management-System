@@ -1,9 +1,9 @@
 <?php
 session_start();
-include '../connection.php';
+ include '../connection.php';
 ?>
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
 
 <head>
     <meta charset="UTF-8">
@@ -32,9 +32,9 @@ include '../connection.php';
                         Stock1
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="record.php">Record Stock</a>
-                        <a class="dropdown-item" href="viewRecord.php">View Stock</a>
-                        <a class="dropdown-item" href="totalStock.php">Total Stock</a>
+                        <a class="dropdown-item" href="../stock1/record.php">Record Stock</a>
+                        <a class="dropdown-item" href="../stock1/viewRecord.php">View Stock</a>
+                        <a class="dropdown-item" href="../stock1/totalStock.php">Total Stock</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -43,9 +43,9 @@ include '../connection.php';
                         Stock 2
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="../stock2/record2.php">Record Stock</a>
-                        <a class="dropdown-item" href="../stock2/viewRecord2.php">View Stock</a>
-                        <a class="dropdown-item" href="../stock2/totalStock2.php">Total Stock</a>
+                        <a class="dropdown-item" href="record2.php">Record Stock</a>
+                        <a class="dropdown-item" href="viewRecord2.php">View Stock</a>
+                        <a class="dropdown-item" href="totalStock2.php">Total Stock</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -60,35 +60,45 @@ include '../connection.php';
                     </div>
                 </li>
             </ul>
-            <button type='submit' a href=' logout.php' class='btn btn-primary'>Logout</button></a>
+            <button type='submit' a href='logout.php' class='btn btn-primary'>Logout</button></a>
         </div>
     </nav>
     <div class="container">
-        <h1 class="text-center">
-            Stock Management Stock
-            Record
-        </h1>
-        <?php
+        <div class='flex flex-col items-center gap-2'>
+            <h1 class="text-center">
+                Stock Management Stock
+                Record 2
+            </h1>
+            <?php
         echo"
         <table class='table bg-primary'>
-            <thead>
-            <th class='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>ProductName</th>
-            <th class='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>Quantity</th>
-            <th class='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>total</th>
-            </thead>";
+        <thead>
+        <th class='text-xl py-4 text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>id</th>
+        <th class='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>ProductName</th>
+        <th class='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>Price</th>
+        <th class='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>Quantity</th>
+        <th class='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>Date</th>
+        <th class='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>total</th>
+        <th class='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>Status</th>
+        </thead>";
         
-        $fetch = mysqli_query($conn,"select Name,Id, sum(quantity) as quantity,sum(total) as total from stock group by Name");
+        $fetch = mysqli_query($conn,"select * from stock2");
         
         while($row = mysqli_fetch_array($fetch))
         {
-        echo "<tr class='bg-white border-b dark:bg-gray-800 dark:border-gray-700'>";
+        echo "<tbody class='bg-light'>";
+        echo "<td class='px-6 py-4'>".$row['Id']."</td>";
         echo "<td>".$row['Name']."</td>";
-        echo "<td>".$row['quantity']."</td>";
+        echo "<td>".$row['price']."</td>";
+        echo "<td>".$row['Quantity']."</td>";
+        echo "<td>".$row['dates']."</td>";
         echo "<td>".$row['total']."</td>";
+        echo "<td><button class='btn btn-danger '><a href='deleteS.php?id=".$row['Id']."' >Delete</a></button>
+        <button class='btn btn-success '><a href='updateS.php?id=".$row['Id']."'>Edit</a></button> 
+        </td>";
         }
         }
         ?>
-    </div>
 </body>
 
 </html>

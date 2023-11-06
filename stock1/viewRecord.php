@@ -43,9 +43,9 @@ include '../connection.php';
                         Stock 2
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="record2.php">Record Stock</a>
-                        <a class="dropdown-item" href="viewRecord2.php">View Stock</a>
-                        <a class="dropdown-item" href="totalStock2.php">Total Stock</a>
+                        <a class="dropdown-item" href="../stock2/record2.php">Record Stock</a>
+                        <a class="dropdown-item" href="../stock2/viewRecord2.php">View Stock</a>
+                        <a class="dropdown-item" href="../stock2/totalStock2.php">Total Stock</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -93,7 +93,7 @@ include '../connection.php';
         echo "<td>".$row['dates']."</td>";
         echo "<td>".$row['total']."</td>";
         echo "<td><button class='btn btn-danger '><a href='deleteS.php?id=".$row['Id']."' >Delete</a></button>
-        <button class='btn btn-success link-light link-offset-2 link-underline-opacity-25'> <a href='updateS.php?id=".$row['Id']."'>Edit</a></button> 
+        <button class='btn btn-success '><a href='updateS.php?id=".$row['Id']."'>Edit</a></button> 
         </td>";
         }
         }
