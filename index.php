@@ -9,42 +9,48 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="styles.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 
 <body>
-    <section class='flex flex-col items-center gap-20 h-screen'>
-        <h1 class="text-3xl font-bold">
-            Stock Management Stock
-        </h1>
-        <form method='POST' action='index.php'
-            class=' flex flex-col pt-10 bg-indigo-600 py-10 px-10 w-4/6 h-4/6 rounded-2xl'>
-            <label>Username</label><input type=' text' placeholder='Enter username' name='name' class='border-2'>
-            <label>Password</label><input type='password' name='pass' placeholder='Enter password'>
+    <div class="container">
+        <h2>Login Form</h2>
+        <form method='POST' action='index.php'>
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" name='username' class="form-control" id="username" placeholder="Enter username">
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" name='password' class="form-control" id="password" placeholder="Enter password">
+            </div>
 
             <?php
-
-        if(isset($_POST['login'])){
-            $name = $_POST['name'];
-            $pass = $_POST['pass'];
-            
-            $sql = mysqli_query($conn,"select * from users where username = '$name' and password = '$pass'");
-    
-            if (mysqli_num_rows($sql))
-            {
-                $_SESSION['name'] = $name;
-                header('location:record.php');
+            if(isset($_POST['login'])){
+                $name = $_POST['username'];
+                $pass = $_POST['password'];
+        
+                $sql = mysqli_query($conn,"select * from users where username = '$name' and password = '$pass'");
+        
+                if (mysqli_num_rows($sql))
+                {
+                    $_SESSION['username'] = $name;
+                    header('location:./stock1/record.php');
+                }
+                else{
+                echo "Wrong Username or password";
+                }
             }
-            else{
-            echo "Wrong Username or password";
-            }
-        }
-?>
-            <input type='submit' name='login' value='Log in' class='border-2'>
+        ?>
+            <button name='login' type="submit" class="btn btn-primary">Login</button>
         </form>
-    </section>
+    </div>
 
 
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
 </html>
