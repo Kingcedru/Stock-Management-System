@@ -1,5 +1,10 @@
 <?php
 session_start();
-unset($_SESSION['name']);
-header('location:index.php');
+
+// Destroy the session
+session_destroy();
+
+// Redirect the user to the login page
+header("Location: ./index.php");
+exit();
 ?>

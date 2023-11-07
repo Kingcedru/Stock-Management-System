@@ -60,7 +60,8 @@ session_start();
                     </div>
                 </li>
             </ul>
-            <button type='submit' a href='logout.php' class='btn btn-primary'>Logout</button></a>
+            <button type='submit' class='btn btn-primary'>
+                <a href="../logout.php">Logout</button></a>
         </div>
     </nav>
     <div class="container">
@@ -109,6 +110,9 @@ if(isset($_POST['record'])){
         die('not inserted'.mysqli_error($conn));
     }
 }
+}
+else{
+    header('location:../index.php');
 }
 ?>
 
