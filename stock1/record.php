@@ -54,7 +54,7 @@ session_start();
                         Sales
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="sales.php">Record Sales</href=>
+                        <a class="dropdown-item" href="../sales/sales.php">Record Sales</href=>
                             <a class="dropdown-item" href="viewSales.php">View Sales</a>
                             <a class="dropdown-item" href="viewRecord.php">Total Sales</a>
                     </div>

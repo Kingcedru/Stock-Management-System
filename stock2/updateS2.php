@@ -60,17 +60,16 @@ session_start();
                     </div>
                 </li>
             </ul>
-            <button type='submit' class='btn btn-primary'>
-                <a href="../logout.php">Logout</button></a>
+            <button type='submit' a href='logout.php' class='btn btn-primary'>Logout</button></a>
         </div>
     </nav>
     <div class="container">
         <div class='flex flex-col items-center gap-2'>
             <h1 class="text-center">
                 Stock Management Stock
-                Record Sales
+                Record
             </h1>
-            <form method='POST' action='sales.php'>
+            <form method='POST' action='#'>
                 <div class="form-group">
                     <label for="username">ProductName:</label>
                     <input type="text" name='username' class="form-control" id="name" placeholder="Enter username">
@@ -83,37 +82,34 @@ session_start();
                     <label for="quantity">Quantity:</label>
                     <input type="number" name='quantity' class="form-control" id="" placeholder="">
                 </div>
-                <button name='record' type="submit" class="btn btn-primary">Record</button>
+                <button name='update' type="submit" class="btn btn-primary">Record</button>
             </form>
         </div>
         </section>
-    </div>
-    <?php
-if(isset($_POST['record'])){
+        <?php
+if(isset($_POST['update']) && isset($_GET['id'])){
+    $id = $_GET['id'];
     $name = $_POST['username'];
     $price = $_POST['price'];
     $quantity = $_POST['quantity'];
     $total = $price * $quantity;
+    
 
-	$sql ="insert into sales(Name,price,quantity,dates,total) values ('$name','$price','$quantity',Now(),'$total');";
-    $sql .="update stock2 set Quantity= Quantity - $quantity where Name= '$name'";
+	$sqls = mysqli_query($conn,"update stock2 set Name = '$name',price = '$price',Quantity = '$quantity',dates = Now(),total = '$total' where Id = '$id'")or die(mysqli_error($conn));
 
-    if(mysqli_multi_query($conn,$sql))
+    if($sqls)
     {
         ?>
-    <script>
-    alert("recorded");
-    </script>
-    <?php 
+        <script>
+        alert("updated");
+        </script>
+        <?php 
     }
     else
     {
         die('not inserted'.mysqli_error($conn));
     }
-}
-}
-else{
-    header('location:../index.php');
+    }
 }
 ?>
 

@@ -93,8 +93,8 @@ session_start();
         echo "<td>".$row['Quantity']."</td>";
         echo "<td>".$row['dates']."</td>";
         echo "<td>".$row['total']."</td>";
-        echo "<td><button class='btn btn-danger '><a href='deleteS.php?id=".$row['Id']."' >Delete</a></button>
-        <button class='btn btn-success '><a href='updateS.php?id=".$row['Id']."'>Edit</a></button> 
+        echo "<td><button class='btn btn-danger '><a href='./deleteS2.php?id=".$row['Id']."' >Delete</a></button>
+        <button class='btn btn-success '><a href='./updateS2.php?id=".$row['Id']."'>Edit</a></button> 
         </td>";
         }
         }
