@@ -60,11 +60,12 @@ echo"
 <th class='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>ProductName</th>
 <th class='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>Price</th>
 <th class='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>Quantity</th>
+<th class='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>date</th>
 <th class='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>total</th>
 <th class='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>Status</th>
 </tr>";
 
-$fetch = mysqli_query($conn,"select * from sales");
+$fetch = mysqli_query($conn,"select * from used");
 
 while($row = mysqli_fetch_array($fetch))
 {
@@ -72,7 +73,8 @@ while($row = mysqli_fetch_array($fetch))
     echo "<td class='px-6 py-4'>".$row['Id']."</td>";
     echo "<td>".$row['Name']."</td>";
     echo "<td>".$row['price']."</td>";
-    echo "<td>".$row['quantity']."</td>";
+    echo "<td>".$row['Quantity']."</td>";
+    echo "<td>".$row['dates']."</td>";
     echo "<td>".$row['total']."</td>";
     echo "<td><button class='bg-red-700 px-4 py-2 rounded-md'><a href='deleteS.php?id=".$row['Id']."'>Delete</a></button> 
     <button class='bg-green-600 px-4 py-2 rounded-md'><a href='updateS.php?id=".$row['Id']."'>Edit</a></button> 

@@ -40,16 +40,6 @@ session_start();
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Used
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="../used/used.php">Record Stock</a>
-                        <a class="dropdown-item" href="../used/viewUsed.php">View Stock</a>
-                        <a class="dropdown-item" href="../used/viewUsed.php">Total Stock</a>
-                    </div>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Stock 2
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -64,34 +54,23 @@ session_start();
                         Sales
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="../sales/sales.php">Record Sales</href=>
-                            <a class="dropdown-item" href="../sales/salesviewSales.php">View Sales</a>
-                            <a class="dropdown-item" href="../sales/salesviewRecord.php">Total Sales</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Expenses
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="../expensese/recordExpense.php">Record Expense</href=>
-                            <a class="dropdown-item" href="../sales/salesviewSales.php">View Sales</a>
-                            <a class="dropdown-item" href="../sales/salesviewRecord.php">Total Sales</a>
+                        <a class="dropdown-item" href="sales.php">Record Sales</href=>
+                            <a class="dropdown-item" href="viewSales.php">View Sales</a>
+                            <a class="dropdown-item" href="viewRecord.php">Total Sales</a>
                     </div>
                 </li>
             </ul>
-            <button type='submit' class='btn btn-primary text-white'>
-                <a href="../logout.php" class='text-white'>Logout</button></a>
+            <button type='submit' class='btn btn-primary'>
+                <a href="../logout.php">Logout</button></a>
         </div>
     </nav>
     <div class="container">
         <div class='flex flex-col items-center gap-2'>
             <h1 class="text-center">
                 Stock Management Stock
-                Record 
+                Record Sales
             </h1>
-            <form method='POST' action='record.php'>
+            <form method='POST' action='used.php'>
                 <div class="form-group">
                     <label for="username">ProductName:</label>
                     <input type="text" name='username' class="form-control" id="name" placeholder="Enter username">
@@ -116,9 +95,10 @@ if(isset($_POST['record'])){
     $quantity = $_POST['quantity'];
     $total = $price * $quantity;
 
-	$sql = mysqli_query($conn,"insert into stock(Name,price,quantity,dates,total) values ('$name','$price','$quantity',Now(),'$total')");
+	$sql ="insert into used(Name,price,Quantity,dates,total) values ('$name','$price','$quantity',Now(),'$total');";
+    $sql .="update stock set quantity= quantity - $quantity  where Name= '$name'";
 
-    if($sql)
+    if(mysqli_multi_query($conn,$sql))
     {
         ?>
     <script>

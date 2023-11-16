@@ -69,17 +69,6 @@ session_start();
                             <a class="dropdown-item" href="../sales/salesviewRecord.php">Total Sales</a>
                     </div>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Expenses
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="../expensese/recordExpense.php">Record Expense</href=>
-                            <a class="dropdown-item" href="../sales/salesviewSales.php">View Sales</a>
-                            <a class="dropdown-item" href="../sales/salesviewRecord.php">Total Sales</a>
-                    </div>
-                </li>
             </ul>
             <button type='submit' class='btn btn-primary text-white'>
                 <a href="../logout.php" class='text-white'>Logout</button></a>
@@ -89,20 +78,17 @@ session_start();
         <div class='flex flex-col items-center gap-2'>
             <h1 class="text-center">
                 Stock Management Stock
-                Record 
+                Record Expenses
             </h1>
-            <form method='POST' action='record.php'>
+            <form method='POST' action='recordExpense.php'>
                 <div class="form-group">
-                    <label for="username">ProductName:</label>
-                    <input type="text" name='username' class="form-control" id="name" placeholder="Enter username">
+                    <label for="description">Descrition:</label>
+                    <input type="text" name='desc' class="form-control" id="description"
+                        placeholder="Enter description">
                 </div>
                 <div class="form-group">
-                    <label for="price">Price:</label>
-                    <input type="number" name='price' class="form-control" id="" placeholder="">
-                </div>
-                <div class="form-group">
-                    <label for="quantity">Quantity:</label>
-                    <input type="number" name='quantity' class="form-control" id="" placeholder="">
+                    <label for="amount">Amount:</label>
+                    <input type="number" name='amount' class="form-control" id="amount" placeholder="">
                 </div>
                 <button name='record' type="submit" class="btn btn-primary">Record</button>
             </form>
@@ -111,12 +97,10 @@ session_start();
     </div>
     <?php
 if(isset($_POST['record'])){
-    $name = $_POST['username'];
-    $price = $_POST['price'];
-    $quantity = $_POST['quantity'];
-    $total = $price * $quantity;
+    $description = $_POST['desc'];
+    $amount = $_POST['amount'];
 
-	$sql = mysqli_query($conn,"insert into stock(Name,price,quantity,dates,total) values ('$name','$price','$quantity',Now(),'$total')");
+	$sql = mysqli_query($conn,"insert into expenses(description,amount,date) values ('$description','$amount',Now())");
 
     if($sql)
     {

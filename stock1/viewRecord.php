@@ -92,8 +92,8 @@ include '../connection.php';
         echo "<td>".$row['quantity']."</td>";
         echo "<td>".$row['dates']."</td>";
         echo "<td>".$row['total']."</td>";
-        echo "<td><button class='btn btn-danger '><a href='deleteS.php?id=".$row['Id']."' >Delete</a></button>
-        <button class='btn btn-success '><a href='updateS.php?id=".$row['Id']."'>Edit</a></button> 
+        echo "<td><button class='btn btn-danger '><a href='deleteS.php?id=".$row['Id']."' class='text-white'>Delete</a></button>
+        <button class='btn btn-success '><a href='updateS.php?id=".$row['Id']."' class='text-white'>Edit</a></button> 
         </td>";
         }
         }
