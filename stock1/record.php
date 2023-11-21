@@ -75,8 +75,8 @@ session_start();
                         Expenses
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="../expensese/recordExpense.php">Record Expense</href=>
-                            <a class="dropdown-item" href="../sales/salesviewSales.php">View Sales</a>
+                        <a class="dropdown-item" href="../expense/recordExpense.php">Record Expense</href=>
+                            <a class="dropdown-item" href="../expense/viewExpense.php">View Expense</a>
                             <a class="dropdown-item" href="../sales/salesviewRecord.php">Total Sales</a>
                     </div>
                 </li>
@@ -89,7 +89,7 @@ session_start();
         <div class='flex flex-col items-center gap-2'>
             <h1 class="text-center">
                 Stock Management Stock
-                Record 
+                Record
             </h1>
             <form method='POST' action='record.php'>
                 <div class="form-group">
