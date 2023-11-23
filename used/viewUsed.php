@@ -17,36 +17,73 @@ include '../connection.php';
     if($_SESSION['name']){
         ?>
     <section class='flex flex-col  gap-20 h-screen'>
-        <nav class='flex'>
-            <ul class='flex gap-2'>
-                <li class=''>Stock 1
-                    <ul>
-                        <li><a href="record.php">Record Stock</li></a>
-                        <li><a href="viewRecord.php">View Stock</li></a>
-                        <li><a href="totalStock.php">Total Stock</li></a>
-                    </ul>
-                </li>
-                <li class=''>Stock 2
-                    <ul>
-                        <li><a href="record.php">Record Stock</li></a>
-                        <li><a href="viewRecord.php">View Stock</li></a>
-                        <li><a href="totalStock.php">Total Stock</li></a>
-                    </ul>
-                </li>
-                <li>Sales
-                    <ul>
-                        <li><a href="sales.php">Record Sales</li></a>
-                        <li><a href="viewSales.php">View Sales</li></a>
-                        <li><a href="viewRecord.php">Total Sales</li></a>
-                    </ul>
-                </li>
-                <li>Expense</li>
-                <li>Expense</li>
-            </ul>
-            <a href=' logout.php'>Logout</a>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Brand Name</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent"
+                aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Stock1
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="record.php">Record Stock</a>
+                            <a class="dropdown-item" href="viewRecord.php">View Stock</a>
+                            <a class="dropdown-item" href="totalStock.php">Total Stock</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Used
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="../used/used.php">Record Stock</a>
+                            <a class="dropdown-item" href="../used/viewUsed.php">View Stock</a>
+                            <a class="dropdown-item" href="../used/viewUsed.php">Total Stock</a>
+                        </div>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Stock 2
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="../stock2/record2.php">Record Stock</a>
+                            <a class="dropdown-item" href="../stock2/viewRecord2.php">View Stock</a>
+                            <a class="dropdown-item" href="../stock2/totalStock2.php">Total Stock</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Sales
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="../sales/sales.php">Record Sales</href=>
+                                <a class="dropdown-item" href="../sales/salesviewSales.php">View Sales</a>
+                                <a class="dropdown-item" href="../sales/salesviewRecord.php">Total Sales</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Expenses
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="../expense/recordExpense.php">Record Expense</href=>
+                                <a class="dropdown-item" href="../expense/viewExpense.php">View Expense</a>
+                                <a class="dropdown-item" href="../expense/totalExpense.php">Total Expense</a>
+                        </div>
+                    </li>
+                </ul>
+                <button type='submit' class='btn btn-primary text-white'>
+                    <a href="../logout.php" class='text-white'>Logout</button></a>
+            </div>
         </nav>
-
-
 
         <h1 class="text-3xl font-bold">
             Stock Management Stock

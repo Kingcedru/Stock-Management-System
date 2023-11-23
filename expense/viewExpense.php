@@ -78,7 +78,7 @@ include '../connection.php';
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="../expense/recordExpense.php">Record Expense</href=>
                                 <a class="dropdown-item" href="../expense/viewExpense.php">View Expense</a>
-                                <a class="dropdown-item" href="../sales/salesviewRecord.php">Total Sales</a>
+                                <a class="dropdown-item" href="../expense/totalExpense.php">Total Expense</a>
                         </div>
                     </li>
                 </ul>

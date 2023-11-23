@@ -32,20 +32,30 @@ session_start();
                         Stock1
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="../stock1/record.php">Record Stock</a>
-                        <a class="dropdown-item" href="../stock1/viewRecord.php">View Stock</a>
-                        <a class="dropdown-item" href="../stock1/totalStock.php">Total Stock</a>
+                        <a class="dropdown-item" href="record.php">Record Stock</a>
+                        <a class="dropdown-item" href="viewRecord.php">View Stock</a>
+                        <a class="dropdown-item" href="totalStock.php">Total Stock</a>
                     </div>
                 </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Used
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="../used/used.php">Record Stock</a>
+                        <a class="dropdown-item" href="../used/viewUsed.php">View Stock</a>
+                        <a class="dropdown-item" href="../used/viewUsed.php">Total Stock</a>
+                    </div>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Stock 2
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="record2.php">Record Stock</a>
-                        <a class="dropdown-item" href="viewRecord2.php">View Stock</a>
-                        <a class="dropdown-item" href="totalStock2.php">Total Stock</a>
+                        <a class="dropdown-item" href="../stock2/record2.php">Record Stock</a>
+                        <a class="dropdown-item" href="../stock2/viewRecord2.php">View Stock</a>
+                        <a class="dropdown-item" href="../stock2/totalStock2.php">Total Stock</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -54,13 +64,25 @@ session_start();
                         Sales
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="sales.php">Record Sales</href=>
-                            <a class="dropdown-item" href="viewSales.php">View Sales</a>
-                            <a class="dropdown-item" href="viewRecord.php">Total Sales</a>
+                        <a class="dropdown-item" href="../sales/sales.php">Record Sales</href=>
+                            <a class="dropdown-item" href="../sales/salesviewSales.php">View Sales</a>
+                            <a class="dropdown-item" href="../sales/salesviewRecord.php">Total Sales</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Expenses
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="../expense/recordExpense.php">Record Expense</href=>
+                            <a class="dropdown-item" href="../expense/viewExpense.php">View Expense</a>
+                            <a class="dropdown-item" href="../expense/totalExpense.php">Total Expense</a>
                     </div>
                 </li>
             </ul>
-            <button type='submit' a href='logout.php' class='btn btn-primary'>Logout</button></a>
+            <button type='submit' class='btn btn-primary text-white'>
+                <a href="../logout.php" class='text-white'>Logout</button></a>
         </div>
     </nav>
     <div class="container">
